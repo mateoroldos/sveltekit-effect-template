@@ -6,7 +6,7 @@ import { CustomInputError, Redirect, ServerError } from '$lib/server/responses';
 export const loginAction = Effect.gen(function* () {
 	const form = yield* superValidateActionForm(loginActionSchema);
 
-	yield* Effect.tryPromise(() => new Promise((resolve) => setTimeout(resolve, 1000)));
+	yield* Effect.promise(() => new Promise((resolve) => setTimeout(resolve, 1000)));
 
 	const randomNumber = Math.floor(Math.random() * 3);
 
@@ -31,5 +31,5 @@ export const loginAction = Effect.gen(function* () {
 
 	const { username } = form.data;
 
-	return new Redirect({ to: '/welcome', message: `Welcome ${username}` });
+	return new Redirect({ to: '/welcome', code: 302, message: `Welcome ${username}` });
 });
