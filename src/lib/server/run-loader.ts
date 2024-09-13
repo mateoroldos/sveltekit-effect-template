@@ -48,8 +48,8 @@ export const runLoader =
 					OkLoader: ({ data }) => {
 						return { ...data };
 					},
-					Redirect: ({ to }) => {
-						return redirect(307, to);
+					Redirect: ({ to, code }) => {
+						return redirect(code, to);
 					}
 				})
 			})

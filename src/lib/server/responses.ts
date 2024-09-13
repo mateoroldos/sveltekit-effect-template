@@ -32,11 +32,7 @@ export class Redirect extends Data.TaggedClass('Redirect')<{
 	readonly to: string;
 	readonly code: number;
 	readonly message?: string;
-}> {
-	constructor({ to, code = 307, message }: { to: string; code?: number; message?: string }) {
-		super({ to, code, message });
-	}
-}
+}> {}
 
 export class Forbidden extends Data.TaggedClass('Forbidden')<{
 	readonly errors: Array<string>;
