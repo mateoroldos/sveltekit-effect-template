@@ -8,14 +8,14 @@ export const loginAction = Effect.gen(function* () {
 
 	yield* Effect.promise(() => new Promise((resolve) => setTimeout(resolve, 1000)));
 
-	const randomNumber = Math.floor(Math.random() * 3);
+	const randomNumber = Math.floor(Math.random() * 4);
 
 	switch (randomNumber) {
 		case 0:
 			yield* Effect.fail(
 				new ServerError({
 					errors: ["Don't worry, this is error was on purpouse"],
-					message: 'This is a simulated error, try again.'
+					message: 'This errors was created on purpose. Try again'
 				})
 			);
 			break;
@@ -24,7 +24,7 @@ export const loginAction = Effect.gen(function* () {
 				new CustomInputError({
 					form,
 					field: 'username',
-					message: 'This is a custom error message'
+					message: 'This is a custom error message. It was created on purpose. Try again'
 				})
 			);
 	}
